@@ -1,0 +1,6 @@
+mobile/src/services/api.ts
+mobile/.env
+mobile/App.tsx
+api/node_modules
+api/tmp
+api/src/database/database.db
