@@ -10,6 +10,7 @@ import BodySvg from '@assets/body.svg'
 import SeriesSvg from '@assets/series.svg'
 import Repetitions from '@assets/repetitions.svg'
 
+import  ArrowLeft from '@assets/arrow-left.svg'
 type RouteParams = {
   exerciseId: string
 }
@@ -59,7 +60,7 @@ export function Exercise() {
       toast.show({
         title: 'Exercício registrado com sucesso!',
         placement: 'top',
-        bgColor: ' gold.500'
+        bgColor: 'green.500'
       })
       setExercise(response.data)
       navigate.navigate('history')
@@ -84,11 +85,12 @@ export function Exercise() {
     <VStack flex={1}>
       <VStack px={8} bg="gray.600" pt={12}>
         <TouchableOpacity onPress={handleGoBack}>
-          <Icon as={Feather} name="arrow-left" color="gold.500" size={6}/>
-        </TouchableOpacity>
+          </TouchableOpacity>
 
         <HStack justifyContent="space-between" mt={4} mb={8} alignItems="center">
-          <Heading color="gray.100" fontSize="lg" fontFamily="heading" flexShrink={1}>
+        <ArrowLeft style={{width: 3, height: 3}} onPress={handleGoBack}/>
+          <Heading color="gray.100" fontSize="lg" fontFamily="heading">
+        
             {exercise.name}
           </Heading>
 

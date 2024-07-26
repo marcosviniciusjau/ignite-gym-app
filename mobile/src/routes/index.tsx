@@ -29,6 +29,7 @@ export function Routes(){
   }
   
   useEffect(() => {
+    tagUserInfoCreate()
     const handleNotification = (event: NotificationWillDisplayEvent) : void => {
       event.preventDefault()
       const response = event.getNotification()
@@ -37,14 +38,13 @@ export function Routes(){
     OneSignal.Notifications.addEventListener("foregroundWillDisplay", 
       handleNotification
     )
-    tagUserInfoCreate()
     return () => 
       OneSignal.Notifications.removeEventListener(
       "foregroundWillDisplay",
        handleNotification
     )
     
-  },[tagUserInfoCreate])
+  },[])
   
   return(
     <NavigationContainer theme={theme}>

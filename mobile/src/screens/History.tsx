@@ -13,7 +13,6 @@ import { OneSignal } from 'react-native-onesignal'
 export function History() {
   const [isLoading, setIsLoading] = useState(true)
   const [exercises, setExercises] = useState<HistoryByDayDTO[]>([])
-  console.log(exercises)
   function tagUserInfoCreate(){
     OneSignal.User.addTags({
       last_exercise: exercises

@@ -13,12 +13,12 @@ import { Loading } from '@components/Loading'
 import { useAuth } from '@hooks/useAuth'
 
 export function Home() {
-  const { user, logout } = useAuth()
+  const { user, signOut } = useAuth()
   const [isLoadingExercises, setIsLoadingExercises] = useState(true)
   const [isLoadingGroups, setIsLoadingGroups] = useState(true)
   const [groups, setGroups] = useState<string[]>([]) 
   const [exercises, setExercises] = useState<ExerciseDTO[]>([]) 
-  const [groupSelected, setGroupSelected] = useState('Costas') 
+  const [groupSelected, setGroupSelected] = useState('costas') 
 
   const navigation = useNavigation<AppNavigatorProps>()
   const toast = useToast()
@@ -33,7 +33,6 @@ export function Home() {
       setGroups(response.data)
     } catch (error) {
       const isAppError = error instanceof AppError
-      console.log(isAppError)
       const title = isAppError ? error.message : 'Não foi possível carregar os grupos. Tente mais tarde.'
       
       toast.show({

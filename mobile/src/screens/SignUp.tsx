@@ -8,7 +8,7 @@ import { api } from '@services/api'
 import { AppError } from '@utils/AppError'
 
 import LogoSvg from '@assets/logo_academia.svg'
-import BackgroundImg from '@assets/background.png'
+import BackgroundImg from '@assets/pesos.png'
 
 import { Input } from '@components/Input'
 import { Button } from '@components/Button'
@@ -61,17 +61,13 @@ export function SignUp(){
   return(
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
      <VStack flex={1} px={10} pb={16}>
-      <Image 
-        source={BackgroundImg} 
-        alt="Pessoas treinando" 
-        resizeMode="contain" 
-        position="absolute" 
-      />
-
       <Center my={24}>
-        <LogoSvg />
-        <Text color="gray.100" fontSize="sm">Treine sua mente e o seu corpo</Text>
-      </Center>
+          <LogoSvg width={102} height={40} />
+          <Text color="gray.100" fontSize="xl" mb={4} fontFamily="heading"  fontWeight="bold">Mundo Fitness</Text>
+          <Text color="gray.100" fontSize="sm">
+            Treine sua mente e o seu corpo.
+          </Text>
+        </Center>
 
       <Center>
       <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">

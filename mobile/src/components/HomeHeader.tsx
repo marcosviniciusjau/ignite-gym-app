@@ -1,20 +1,21 @@
-import { HStack, Heading, Text, Icon, VStack } from "native-base" 
+import { HStack, Text, Icon, VStack } from "native-base" 
 import { UserPhoto } from "./UserPhoto" 
 import { MaterialIcons } from '@expo/vector-icons'
 import { TouchableOpacity } from "react-native" 
-import defaultImg from '@assets/userPhotoDefault.png'
-import LogoSvg from '@assets/logo.svg'
+import defaultImg from '@assets/user.png'
+import LogoSvg from '@assets/logo_academia.svg'
+import Logout from '@assets/sign-out.svg'
 import { useAuth } from "@hooks/useAuth"
 import { api } from "@services/api"
 
 export function HomeHeader(){
-  const { user, logout } = useAuth()
+  const { user, signOut } = useAuth()
  
   return (
     
     <HStack bg="gray.600" pt={16} pb={5} px={8} alignItems="center">
-        <LogoSvg width={102} height={40} />
-
+        <LogoSvg  />
+        <Text color="gray.100" fontSize="md" ml={2}  fontWeight="bold">Mundo Fitness</Text>
  
       <VStack flex={1} alignItems={"center"}>
       <UserPhoto
@@ -24,8 +25,8 @@ export function HomeHeader(){
         mr={12}
       />
       </VStack>
-      <TouchableOpacity onPress={logout}>
-       <Icon as={MaterialIcons} name="logout" size={7} color="gold.500" />
+      <TouchableOpacity onPress={signOut}>
+       <Logout fill={"#FFD700"} width={24} height={24}/>
       </TouchableOpacity>
     </HStack>
   )

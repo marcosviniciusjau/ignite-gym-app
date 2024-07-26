@@ -30,12 +30,14 @@ export function SignIn() {
       await signIn(email,password)
     } catch (error) {
       const isAppError = error instanceof AppError
-      console.log(error)
       const title = isAppError ? error.message : 'Não foi possível entrar. Tente novamente mais tarde.'
+      if(title === 'Não existe uma conta nesse e-mail'){
+        navigation.navigate('signUp')
+      }
       toast.show({
         title,
         placement: 'top',
-        bgColor: 'red.500'
+        bgColor: 'red.500',
       })
     }
   }
@@ -45,8 +47,8 @@ export function SignIn() {
         <VStack flex={1} px={10} pb={16}>
     
         <Center my={24}>
-          <LogoSvg />
-
+          <LogoSvg width={102} height={40} />
+          <Text color="gray.100" fontSize="xl" mb={4} fontFamily="heading"  fontWeight="bold">Mundo Fitness</Text>
           <Text color="gray.100" fontSize="sm">
             Treine sua mente e o seu corpo.
           </Text>
